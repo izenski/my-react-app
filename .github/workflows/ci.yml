@@ -14,7 +14,7 @@ jobs:
         uses: actions/cache@v1 
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-#${{ hasFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-#${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             # search for older caches if the new one doesn't exist yet
             ${{ runner.os }}-node-
