@@ -15,7 +15,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-#${{ hasFiles('**/package-lock.json') }}
-          restore-key: |
+          restore-keys: |
             # search for older caches if the new one doesn't exist yet
             ${{ runner.os }}-node-
       - name: Use NodeJS
