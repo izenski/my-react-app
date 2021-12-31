@@ -27,9 +27,19 @@ jobs:
       - run: npm test -- --coverage 
         env:
           CI: true
+      - run: Upload Test Coverage 
+        uses: actions/upload-artifact@v1 
+        with:
+          name: code-coverage
+          path: coverage
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
+      - run: Upload Build Folder 
+        uses: actions/upload-artifact@v1 
+        with:
+          name: build
+          path: build
       - name: Deploy to Staging 
         if: github.event_name == 'push'
         run: echo "add something to push code to AWS here"
